@@ -1,17 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react';
+import ReactDOM from 'react-dom';
+import {createRoot} from 'react-dom/client';
+import Playlist from "./Playlist";
+import SearchBar from "./SearchBar";
+import SearchResults from "./SearchResults";
+import Track from "./Track";
+import Tracklist from "./Tracklist";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-        Luis Fernando
-        </p>
-      </header>
-    </div>
-  );
-}
 
-export default App;
+
+
+//const container = document.getElementById("app");
+//const root = createRoot(container);
+//root.render(<App />);
