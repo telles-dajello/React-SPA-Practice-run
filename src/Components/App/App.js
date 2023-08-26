@@ -11,7 +11,7 @@ const App =  () => {
         {name: 'name2', artist: 'artist2', album: 'album2', id: 'id2'},
         {name: 'name3', artist: 'artist3', album: 'album3', id: 'id3'}]);
     const [playlistName, setPlaylistName] = useState("New Playlist");
-    const [playlistTracks, setPlaylistTracks] = useState();
+    const [playlistTracks, setPlaylistTracks] = useState([{track: 'track1'}, {track: 'track2'}]);
     
     
     const addTrack = (track) => {
@@ -23,12 +23,12 @@ const App =  () => {
 
     return (
         <div>
-            <h1>Ja<span classname="highlight">mmm</span>ing</h1>
+            <h1>Ja<span className="highlight">mmm</span>ing</h1>
             <div className="App">                
                 <SearchBar />
-                <div classname="App-playlist">               
-                <SearchResults searchResults= {searchResults} />                
-                <Playlist playlistName= {playlistName} playlistTracks={playlistTracks} />
+                <div className="App-playlist">               
+                    <SearchResults searchResults= {searchResults} />                
+                    <Playlist playlistName= {playlistName} playlistTracks={playlistTracks} />
                 </div>
             </div>
             </div>        
