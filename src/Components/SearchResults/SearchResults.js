@@ -1,12 +1,12 @@
 import React from 'react';
-import TrackList from '../TrackList/Tracklist';
-import styles from './SearchResults';
+import Tracklist from '../TrackList/Tracklist';
+import './SearchResults.css';
 
-const SearchResults = () => {
+const SearchResults = (props) => {
     return (
         <div className='SearchResults'>
             <h2>Search Results</h2>
-            <Tracklist />
+            <Tracklist tracks= {props.SearchResults} />
         </div>
     )
 };
