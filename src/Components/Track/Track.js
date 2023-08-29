@@ -1,27 +1,29 @@
 import React from 'react';
 import './Track.css';
-
+// receives from Tracklist. renders the tracks using the information passed down from it.
 const Track = (props) => {
-
-    // const addTrack = () => {
-    //     // A FAZER
-    // };
-
-    // const removeTrack = () => {
-    //     // A FAZER
-    // };
+    //passed down from app to searchresults to tracklist and to here. 
+    //it calls the function onAdd on the props track
+    const addTrack = (event) => {
+        props.onAdd(props.track)
+    };
+    //on clicking "-" button the onRemove function will be called, check
+    // the track id and remove it from the playlist.
+    const removeTrack = () => {
+        props.onRemove(props.track)
+    };
 
     const addRemoveButton = () => {
         if (props.isRemove) {
             return (
                 <button className='Track-action' 
-                // onClick={removeTrack}
+                onClick={removeTrack}
                 >-</button>
             )
         } else {
             return (
                 <button className='Track-action' 
-                // onClick={addTrack}
+                onClick={addTrack}
                 >+</button>
             )
         }
