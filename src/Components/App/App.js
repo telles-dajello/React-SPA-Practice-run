@@ -29,6 +29,24 @@ const App =  () => {
         setPlaylistTracks((prevPlaylistTracks) => prevPlaylistTracks.filter(currentTrack => currentTrack.id !== track.id))
     }, []);
 
+
+    const updatePlaylistName = (name) => {
+        setPlaylistName(name)
+    }
+
+    const savePlaylist = useCallback(() => {
+        const trackUris = playlistTracks.map((track) => track.uri);
+        // Spotify.savePlaylist(playlistName, trackUris).then(() => {
+        //     setPlaylistName("New Playlist");
+        //     setPlaylistTracks([]);
+        // });
+        }, [playlistName, playlistTracks]);
+
+    const search = (searchTerm) => {
+        console.log(searchTerm)
+    }
+
+
     //renders the stylized name, a search bar with results below and a similar box
     // for playlist and added tracks. flex so depending on the screen size it will be below or next to the search div
     return (
@@ -37,10 +55,10 @@ const App =  () => {
             <div className="App"> 
             {/* SearchBar component, inside is the SearchResults and Playlist components. with props being passed down to them, 
             in this case, that wich is set in the states defined above */}
-                <SearchBar />
+                <SearchBar onSearch={search} />
                 <div className="App-playlist">               
                     <SearchResults onAdd={addTrack} searchResults= {searchResults} />                
-                    <Playlist onAdd={addTrack} onRemove={removeTrack} playlistName= {playlistName} playlistTracks={playlistTracks} />
+                    <Playlist onAdd={addTrack} onRemove={removeTrack} onNameChange={updatePlaylistName} onSave={savePlaylist} playlistName= {playlistName} playlistTracks={playlistTracks} />
                 </div>
             </div>
             </div>        
