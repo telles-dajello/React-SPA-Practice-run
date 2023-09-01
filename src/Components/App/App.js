@@ -3,7 +3,8 @@ import "./App.css";
 import Playlist from "../Playlist/Playlist";
 import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
-// assitir https://www.youtube.com/watch?v=DH991Dzb9iE e acompanhar em https://www.codecademy.com/paths/full-stack-engineer-career-path/tracks/fscp-react-part-ii/modules/fecp-challenge-project-jammming/projects/jammming-prj?_gl=1*18rloqx*_ga*MTU0NTc4MjU3Ny4xNjY5MTM3NjU4*_ga_3LRZM6TM9L*MTY5MjE1MTY5Mi4yNC4wLjE2OTIxNTE2OTIuNjAuMC4w
+import Spotify from '../../util/Spotify';
+
 
 const App =  () => {
     //initializing states... for now with hardcoded arrays for playlist and results
@@ -43,7 +44,7 @@ const App =  () => {
         }, [playlistName, playlistTracks]);
 
     const search = (searchTerm) => {
-        console.log(searchTerm)
+        Spotify.search(searchTerm).then(setSearchResults) 
     }
 
 
