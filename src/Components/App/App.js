@@ -8,15 +8,9 @@ import Spotify from '../../util/Spotify';
 
 const App =  () => {
     //initializing states... for now with hardcoded arrays for playlist and results
-    const [searchResults, setSearchResults] = useState([
-        {name: 'name1', artist: 'artist1', album: 'album1', id: 'id1'}, 
-        {name: 'name2', artist: 'artist2', album: 'album2', id: 'id2'},
-        {name: 'name3', artist: 'artist3', album: 'album3', id: 'id3'}]);
+    const [searchResults, setSearchResults] = useState([]);
     const [playlistName, setPlaylistName] = useState("New Playlist");
-    const [playlistTracks, setPlaylistTracks] = useState([
-        {name: 'nameTrack1', artist: 'artist1', album: 'album1', id: 'id4'}, 
-        {name: 'nameTrack2', artist: 'artist2', album: 'album2', id: 'id5'},
-        {name: 'nameTrack3', artist: 'artist3', album: 'album3', id: 'id6'}]);
+    const [playlistTracks, setPlaylistTracks] = useState([]);
     
     // checks if a track is present in an array, if it isn't it spreads old array in playlist component and add one to the end
     const addTrack = useCallback((track) => {

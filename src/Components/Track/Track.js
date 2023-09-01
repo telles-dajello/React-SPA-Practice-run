@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import './Track.css';
 // receives from Tracklist. renders the tracks using the information passed down from it.
 const Track = (props) => {
     //passed down from app to searchresults to tracklist and to here. 
     //it calls the function onAdd on the props track
-    const addTrack = (event) => {
+    const addTrack = useCallback((event) => {
         props.onAdd(props.track)
-    };
+    }, [props.onAdd, props.track]
+    );
     //on clicking "-" button the onRemove function will be called, check
     // the track id and remove it from the playlist.
-    const removeTrack = () => {
+    const removeTrack = useCallback((event) => {
         props.onRemove(props.track)
-    };
+    }, [props.onRemove, props.track]
+    );
 
     const addRemoveButton = () => {
         if (props.isRemove) {
