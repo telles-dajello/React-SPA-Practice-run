@@ -31,9 +31,9 @@ const App =  () => {
     }, []);
 
 
-    const updatePlaylistName = (name) => {
+    const updatePlaylistName = useCallback((name) => {
         setPlaylistName(name)
-    }
+    }, []) 
 
     const savePlaylist = useCallback(() => {
         const trackUris = playlistTracks.map((track) => track.uri);
@@ -43,9 +43,9 @@ const App =  () => {
             });
         }, [playlistName, playlistTracks]);
 
-    const search = (searchTerm) => {
+    const search = useCallback((searchTerm) => {
         Spotify.search(searchTerm).then(setSearchResults) 
-    }
+    }, []) 
 
 
     //renders the stylized name, a search bar with results below and a similar box
