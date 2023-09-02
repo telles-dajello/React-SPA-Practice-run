@@ -10,7 +10,7 @@ const SearchResults = (props) => {
             <TrackList onAdd={props.onAdd} tracks={props.searchResults} />
         </div>
     )
-};
+}; 
 
 
 export default SearchResults;

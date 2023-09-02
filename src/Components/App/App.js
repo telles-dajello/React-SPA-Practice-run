@@ -5,7 +5,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import SearchResults from "../SearchResults/SearchResults";
 import Spotify from '../../util/Spotify';
 
-
+ 
 const App =  () => {
     //initializing states... for now with hardcoded arrays for playlist and results
     const [searchResults, setSearchResults] = useState([]);

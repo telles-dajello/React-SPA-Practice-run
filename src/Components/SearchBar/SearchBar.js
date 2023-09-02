@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import './SearchBar.css';
-
+ 
 const SearchBar = (props) => {
     const [searchTerm, setSearchTerm] = useState("");
 

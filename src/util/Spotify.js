@@ -2,7 +2,7 @@
 //It would be better to have another API in the server side 
 //to keep this information. since this is just for practice 
 //I am going to delete the app from my spotify after checking that this is working.
-const clientId = process.env.REACT_APP_SPOTIFY_CLIENT_ID;
+const clientId = '4dfcb358affc4779b15e36c2fcfefc21';
 const redirectUri = "http://localhost:3000"
 let accessToken;
 
@@ -42,13 +42,13 @@ const Spotify = {
             return jsonResponse.tracks.items.map(track => ({
                 id: track.id,
                 name: track.name,
-                artist: track.artist[0].name,
+                artist: track.artists[0].name,
                 uri: track.uri
             }));
         })
     },
 
-    savePlayList(name, trackUris) {
+    savePlaylist(name, trackUris) {
         if (!name || !trackUris) {
             return
         }
@@ -60,7 +60,7 @@ const Spotify = {
         ).then(response => response.json()
         ).then(jsonResponse => {
             userId = jsonResponse.id;
-            return fetch(`/v1/users/${userId}/playlists`, 
+            return fetch(`https://api.spotify.com/v1/users/${userId}/playlists`, 
             {
                 headers: headers,
                 method: 'POST',
@@ -68,13 +68,13 @@ const Spotify = {
             }).then(response => response.json()
             ).then(jsonResponse => {
                 const playlistId = jsonResponse.id;
-                return fetch(`/v1/users/${userId}/playlists/${playlistId}/tracks`, {
+                return fetch(`https://api.spotify.com/v1/users/${userId}/playlists/${playlistId}/tracks`, {
                     headers: headers,
                     method: 'POST',
                     body: JSON.stringify({uris: trackUris})
                 });
             });
-        })
+        }) 
     }
 }
 

@@ -28,7 +28,7 @@ const Track = (props) => {
                 onClick={addTrack}
                 >+</button>
             )
-        }
+        } 
     };
 
     return (
